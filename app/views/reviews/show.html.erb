@@ -7,17 +7,17 @@
 
 <p>
   <b>Stress level:</b>
-  <%= @review.stress_level %>
+  <%= Review.where(name: @review.name).average(:stress_level).round(2) %>
 </p>
 
 <p>
   <b>Hours spent:</b>
-  <%= @review.hours_spent %>
+  <%= Review.where(name: @review.name).average(:hours_spent).round(2) %>
 </p>
 
 <p>
   <b>Value:</b>
-  <%= @review.value %>
+  <%= Review.where(name: @review.name).average(:value).round(2) %>
 </p>
 
 

@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    @reviewnames = Review.uniq.pluck(:name)
 
 
     respond_to do |format|
@@ -26,16 +26,6 @@ class ReviewsController < ApplicationController
     render 'show.html.erb'
   end
 
-  def average_stress
-    @reviews = Review.where(name: "Lit Hum")
-    sum = 0;
-    num = 0;
-    for review in @reviews
-      sum = sum + review.stress_level
-      num = num + 1
-    end
-    avg = sum / num
-  end
 
   # GET /reviews/new
   # GET /reviews/new.json
