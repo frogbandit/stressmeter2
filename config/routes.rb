@@ -1,7 +1,10 @@
 Hackprinceton::Application.routes.draw do
   resources :reviews
 
+  root to: 'reviews#index'
 
+  match '/show' => 'reviews#show', via: [:get, :post]
+  match '/reviews/search' => 'reviews#search', via: [:get, :post]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

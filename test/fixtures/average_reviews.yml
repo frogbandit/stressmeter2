@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  average_stress: 9.99
+  average_hours: 9.99
+  average_value: 9.99
+
+two:
+  average_stress: 9.99
+  average_hours: 9.99
+  average_value: 9.99

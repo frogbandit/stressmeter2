@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.string :name
       t.decimal :stress_level
       t.decimal :hours_spent
-      t.string :value
+      t.decimal :value
 
       t.timestamps
     end

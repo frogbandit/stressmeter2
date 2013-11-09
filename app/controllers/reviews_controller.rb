@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
 
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @reviews }
@@ -14,11 +15,26 @@ class ReviewsController < ApplicationController
   # GET /reviews/1.json
   def show
     @review = Review.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @review }
     end
+  end
+
+  def search
+    @review = Review.find_by_name(params[:name])
+    render 'show.html.erb'
+  end
+
+  def average_stress
+    @reviews = Review.where("name" = "Lit Hum")
+    sum = 0;
+    num = 0;
+    for review in @reviews
+      sum = sum + review.stress_level
+      num = num + 1
+    end
+    avg = sum / num
   end
 
   # GET /reviews/new

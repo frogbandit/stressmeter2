@@ -1,0 +1,36 @@
+<header class="navbar navbar-fixed-top"> 
+   <div class="navbar-inner"> 
+      <div class="container"> 
+        <nav> 
+          <div class="navbar">
+              <div class="navbar-inner">
+                <a class="brand" href="#">Title</a>
+                <ul class="nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">Classes</a></li>
+                  <li><a href="#">Professors</a></li>
+                </ul>
+                <%= form_tag('/reviews/search', class: 'navbar-search pull-right') do %>
+                  <%= label_tag :name %>
+                  <%= text_field_tag :name, nil, class: 'search-query' %>
+
+                  <%= submit_tag "Find class" %>
+                <% end %>
+              </div>
+          </div>
+          
+
+            
+
+
+          <!--  <form action="/show" class="show_review navbar-search pull-left" id="show_review" method="get">
+              <span id="searchclassbar">Search a class: </span> 
+              <input type="text" class="search-query" name="review[name]" placeholder="Search">
+              <input name="commit" type="submit" value="Search" />
+            </form>
+-->
+
+        </nav> 
+      </div> 
+   </div> 
+ </header>

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131109033039) do
+ActiveRecord::Schema.define(:version => 20131109142251) do
+
+  create_table "average_reviews", :force => true do |t|
+    t.decimal  "average_stress"
+    t.decimal  "average_hours"
+    t.decimal  "average_value"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "reviews", :force => true do |t|
     t.string   "name"
