@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  stress_level: 
+  hours_spent: 
+  value: MyString
+
+two:
+  name: MyString
+  stress_level: 
+  hours_spent: 
+  value: MyString
