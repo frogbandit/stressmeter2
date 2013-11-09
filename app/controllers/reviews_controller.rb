@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
   end
 
   def average_stress
-    @reviews = Review.where("name" = "Lit Hum")
+    @reviews = Review.where(name: "Lit Hum")
     sum = 0;
     num = 0;
     for review in @reviews

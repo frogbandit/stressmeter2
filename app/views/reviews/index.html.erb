@@ -14,8 +14,8 @@
 <% @reviews.each do |review| %>
   <tr>
     <td><%= review.name %></td>
-    <td><%= review.stress_level %></td>
-    <td><%= review.hours_spent %></td>
+    <td><%= Review.where(name: "Lit Hum").average(:stress_level) %></td>
+    <td><%= Review.where(name: "Lit Hum").average(:hours_spent) %></td>
     <td><%= review.value %></td>
     <td><%= link_to 'Show', review %></td>
     <td><%= link_to 'Edit', edit_review_path(review) %></td>
@@ -27,3 +27,5 @@
 <br />
 
 <%= link_to 'New Review', new_review_path %>
+
+
