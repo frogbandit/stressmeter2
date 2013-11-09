@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
-    @review = Review.find(params[:id])
+    @review = Review.find_by_name(params[:name])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @review }
@@ -50,7 +50,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to '/', notice: 'Review was successfully created.' }
         format.json { render json: @review, status: :created, location: @review }
       else
         format.html { render action: "new" }

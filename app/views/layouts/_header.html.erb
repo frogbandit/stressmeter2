@@ -10,6 +10,7 @@
                   <li><a href="#">Classes</a></li>
                   <li><a href="#">Professors</a></li>
                 </ul>
+                <%= label_tag :name %>
                 <%= form_tag('/reviews/search', class: 'navbar-search pull-right') do %>  
                   <%= text_field_tag :name, nil, class: 'search-query' %>
 

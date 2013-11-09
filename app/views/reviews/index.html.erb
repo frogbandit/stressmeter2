@@ -17,9 +17,7 @@
     <td><%= Review.where(name: review).average(:stress_level).round(2) %></td>
     <td><%= Review.where(name: review).average(:hours_spent).round(2) %></td>
     <td><%= Review.where(name: review).average(:value).round(2) %></td>
-    <td><%= link_to 'Show', review %></td>
-    <td><%= link_to 'Edit', edit_review_path(review) %></td>
-    <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Add Review', "/reviews/new" %></td>
   </tr>
 <% end %>
 </table>
