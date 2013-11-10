@@ -3,12 +3,17 @@ class ReviewsController < ApplicationController
   # GET /reviews.json
   def index
     @reviewnames = Review.uniq.pluck(:name)
-
+    @reviews = Review.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @reviews }
+      format.json { render json: @reviewnames }
     end
+  end
+
+  def showall
+    @reviewnames = Review.uniq.pluck(:name)
+    render 'showall.html.erb'
   end
 
   # GET /reviews/1
@@ -25,6 +30,7 @@ class ReviewsController < ApplicationController
     @review = Review.find_by_name(params[:name])
     render 'show.html.erb'
   end
+
 
 
   # GET /reviews/new

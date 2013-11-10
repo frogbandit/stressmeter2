@@ -2,12 +2,14 @@
 <html ng-app="reviewApp"> 
   <head> 
     <title> </title> 
-    
+
     <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js" %>
     <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular-resource.min.js" %>
     <%= stylesheet_link_tag    "application", media: "all" %> 
     <%= javascript_include_tag "application" %> 
-
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <%= javascript_include_tag "search.js" %>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
     <%= csrf_meta_tags %>  
 
   </head> 
@@ -19,7 +21,6 @@
       <% end %> 
       <%= yield %> 
       <%= render 'layouts/footer' %> 
-      <%= debug(params) if Rails.env.development? %> 
     </div> 
   </body> 
 </html>

@@ -1,5 +1,5 @@
-<h1>Listing reviews</h1>
-
+<center><h1>Search a class</h1></center>
+<!--
 <table>
   <tr>
     <th>Name</th>
@@ -9,8 +9,8 @@
     <th></th>
     <th></th>
     <th></th>
-  </tr>
-
+  </tr> -->
+<!--
 <% @reviewnames.each do |review| %>
   <tr>
     <td><%= review %></td>
@@ -21,16 +21,33 @@
   </tr>
 <% end %>
 </table>
+-->
+<div class="row">
 
-<ul>
-  <li ng-repeat="review in reviews">
-    {{review.name}}
-    <p>{{review.snippet}}</p>
-  </li>
-</ul>
+  <%= label_tag :name, nil, class: "display-none" %>
+  <%= form_tag('/reviews/search', class: 'navbar-search pull-left') do %>  
+    <%= text_field_tag :name, nil, class: 'search-query' %> 
+    <%= javascript_include_tag "typeahead.js" %>
+    <script>
+      $(".search-query").typeahead({
+        name: 'random',
+        prefetch: {
+          url: '/reviews.json',
+          ttl: 0
+        }
+       });
 
-<br />
+      
+    </script>
+    <%= submit_tag "Find class", class: "btn btn-success" %>
+    <% end %>
+    <%= link_to 'New Review', new_review_path, class: "btn btn-primary new-review" %>
 
-<%= link_to 'New Review', new_review_path %>
+</div>
+  
+<div class="space">
+</div>
 
 
+    
+    

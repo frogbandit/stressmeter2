@@ -7,6 +7,9 @@ Hackprinceton::Application.routes.draw do
   match '/reviews/search' => 'reviews#search', via: [:get, :post]
 
   get '/reviews/:name', to: 'reviews#new'
+
+  get '/showall', to: 'reviews#showall'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
