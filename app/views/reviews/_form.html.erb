@@ -31,6 +31,36 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  <div class="container">
+<!--
+    <span>0</span>
+    <span style="margin-left: 8.2%">10</span>
+    <span style="margin-left: 8.2%">20</span>
+    <span style="margin-left: 8.2%">30</span>
+    <span style="margin-left: 8.2%">40</span>
+    <span style="margin-left: 8.2%">50</span>
+    <span style="margin-left: 8.2%">60</span>
+    <span style="margin-left: 8.2%">70</span>
+    <span style="margin-left: 8.2%">80</span>
+    <span style="margin-left: 8.2%">90</span>
+    <span style="margin-left: 6.5%">100</span>
+    <div id="slider"></div>
+    <script>
+       $( '#slider' ).slider({
+        value: 5,
+        min: 0,
+        max: 10,
+        step: 1
+       });
+
+    </script>
+  -->
+    <div class="btn-group" data-toggle="buttons-radio">
+      <button type="button" class="btn btn-primary">Left</button>
+      <button type="button" class="btn btn-primary">Middle</button>
+      <button type="button" class="btn btn-primary">Right</button>
+    </div>
+  </div>
 <% end %>
 
 

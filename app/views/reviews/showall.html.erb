@@ -11,7 +11,7 @@
 
 <% @reviewnames.each do |review| %>
   <tr>
-    <td><%= review %></td>
+    <td><%= link_to review, { controller: "reviews", action: "search", name: review }, class: "no-change-link" %></td>
     <td><%= Review.where(name: review).average(:stress_level).round(2) %></td>
     <td><%= Review.where(name: review).average(:hours_spent).round(2) %></td>
     <td><%= Review.where(name: review).average(:value).round(2) %></td>
