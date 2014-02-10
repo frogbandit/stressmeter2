@@ -87,11 +87,78 @@ body { padding-top: 60px; }
 	font-color: white;
 }
 
+a:visited.new-review {
+  color: #333;
+}
+
 .navbar-search{
 	margin-left: 450px;
 }
 
 .space {
-	height: 537px
+	height: 507px;
 }
 
+.space-on-top {
+  height: 35px;
+}
+
+.navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner{
+  padding-left: 20px;
+}
+
+.down-10{
+  margin-top: 15px;
+}
+
+h1 {
+  font-family: "Georgia" !important;
+}
+
+th, td{
+  padding-right: 30px;
+}
+
+ul{
+  list-style: none;
+}
+
+.rating_star, .rating_star2, .rating_star_fixed {
+  background: url('http://png.findicons.com/files/icons/1620/crystal_project/22/14_star.png');
+  width: 22px;
+  height: 22px;
+  display: block;
+  float: left;
+}
+
+.on{
+  background: url('http://png.findicons.com/files/icons/1620/crystal_project/22/knewstuff.png');
+}
+
+.rating{
+  padding-left: 490px;
+}
+
+input[type="radio"]{
+  opacity: 0;
+  width: 22px;
+  height: 22px;
+}
+
+.description {
+  min-height: 18px;
+}
+
+#descriptionForStress {
+  margin: 0;
+  padding: 0;
+}
+
+#descriptionForValue {
+  margin: 0;
+  padding: 0;
+}
+
+.no-margin {
+  margin: 0;
+}

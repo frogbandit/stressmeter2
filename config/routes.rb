@@ -9,7 +9,7 @@ Hackprinceton::Application.routes.draw do
   get '/reviews/:name', to: 'reviews#new'
 
   get '/showall', to: 'reviews#showall'
-
+  get '/addcoursenames', to: 'reviews#addcoursenames'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

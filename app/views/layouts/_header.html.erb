@@ -3,11 +3,21 @@
       <div class="container"> 
         <nav> 
           <div class="navbar">
-              <div class="navbar-inner">
+              <div class="navbar-inner down-10">
                 <a class="brand" href="/">Stressometer</a>
                 <ul class="nav">
-                  <li class="active"><a href="/">Home</a></li>
-                  <li><a href="/showall">All Classes</a></li>
+                  <% if @title == "Stressometer | Home" %> 
+                    <li class="active">
+                  <% else %>
+                    <li>
+                  <%end %>
+                      <a href="/">Home</a></li>
+                  <% if @title == "Stressometer | All Classes" %> 
+                    <li class="active">
+                  <% else %>
+                    <li>
+                  <%end %>
+                    <a href="/showall">All Classes</a></li>
                 </ul>
                 
              <!--   <%= label_tag :name %>

@@ -1,21 +1,24 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Stress level</th>
-    <th>Hours spent</th>
-    <th>Value</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr> 
+<center>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Stress level</th>
+      <th>Hours spent</th>
+      <th>Value</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr> 
 
-<% @reviewnames.each do |review| %>
-  <tr>
-    <td><%= link_to review, { controller: "reviews", action: "search", name: review }, class: "no-change-link" %></td>
-    <td><%= Review.where(name: review).average(:stress_level).round(2) %></td>
-    <td><%= Review.where(name: review).average(:hours_spent).round(2) %></td>
-    <td><%= Review.where(name: review).average(:value).round(2) %></td>
-    <td><%= link_to 'Add Review', "/reviews/new" %></td>
-  </tr>
-<% end %>
-</table>
+  <% @reviewnames.each do |review| %>
+    <% if Review.where(name: review).average(:stress_level) != 0 %>
+      <tr>
+        <td><%= link_to review, { controller: "reviews", action: "search", name: review }, class: "no-change-link" %></td>
+        <td><%= Review.where({name: review, stress_level: 1..5}).average(:stress_level).round(2) %></td>
+        <td><%= Review.where(name: review, hours_spent: 1..10000).average(:hours_spent).round(2) %></td>
+        <td><%= Review.where({name: review, value: 1..5}).average(:value).round(2) %></td>
+        <td><%= link_to 'Add Review', { controller: "reviews", action: "new", classname: review } %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </table>

@@ -1,8 +1,6 @@
 <%= form_for(@review) do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
       <ul>
       <% @review.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -13,54 +11,79 @@
 
   <div class="field">
     <%= f.label :name, "Name of Class" %><br />
-    <%= f.text_field :name %>
+    <p hidden class="hiddenclassname"><%= @classname %></p>
+    <%= f.text_field :name, options = { class: 'search-query2' } %>
+    <%= javascript_include_tag "typeahead.js" %>
+    <script>
+      $(".search-query2").typeahead({
+        name: 'random',
+        prefetch: {
+          url: '/reviews.json',
+          ttl: 0
+        }
+       });
+
+      $(".search-query2").attr("value",   $(".hiddenclassname").text());
+      
+    </script>
+
   </div>
 
   <div class="field">
-    <%= f.label :stress_level %><br />
-    <%= f.text_field :stress_level %>
+    <%= f.label :stress_level %>
+    <ul class="rating">
+      <% (1..5).each do |i| %>
+        <li class="rating_star" id=<%= "rating-#{i}" %> data-stars=<%="#{i}" %>>
+          <%= f.radio_button :stress_level, i %>
+        </li>
+      <% end %>
+    </ul>
+    </br>
+    <div class="description"><p id="descriptionForStress"></p></div>
   </div>
+
+
+<!--
+  <div class="field">
+    Stress Level
+    <ul class="rating">
+      <% (1..5).each do |i| %>
+        <li class="rating_star" id=<%= "rating-#{i}" %> data-stars=<%="#{i}" %>></li>
+      <% end %>
+    </ul>
+    </br>
+  </div>
+
+-->
   <div class="field">
     <%= f.label :hours_spent %><br />
     <%= f.text_field :hours_spent %>
   </div>
   <div class="field">
-    <%= f.label :value %><br />
-    <%= f.text_field :value %>
+    <%= f.label :value %>
+    <ul class="rating">
+      <% (1..5).each do |i| %>
+        <li class="rating_star2" id=<%= "rating2-#{i}" %> data-stars=<%="#{i}" %>>
+          <%= f.radio_button :value, i %>
+        </li>
+      <% end %>
+    </ul>
+    </br>
+    <div class="description"><p id="descriptionForValue"></p></div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  <div class="container">
-<!--
-    <span>0</span>
-    <span style="margin-left: 8.2%">10</span>
-    <span style="margin-left: 8.2%">20</span>
-    <span style="margin-left: 8.2%">30</span>
-    <span style="margin-left: 8.2%">40</span>
-    <span style="margin-left: 8.2%">50</span>
-    <span style="margin-left: 8.2%">60</span>
-    <span style="margin-left: 8.2%">70</span>
-    <span style="margin-left: 8.2%">80</span>
-    <span style="margin-left: 8.2%">90</span>
-    <span style="margin-left: 6.5%">100</span>
-    <div id="slider"></div>
-    <script>
-       $( '#slider' ).slider({
-        value: 5,
-        min: 0,
-        max: 10,
-        step: 1
-       });
 
-    </script>
-  -->
+  <div class="actions">
+    <%= f.submit "Create Review", :class => 'btn btn-default' %>
+  </div>
+<!--
+  <div class="container">
     <div class="btn-group" data-toggle="buttons-radio">
       <button type="button" class="btn btn-primary">Left</button>
       <button type="button" class="btn btn-primary">Middle</button>
       <button type="button" class="btn btn-primary">Right</button>
     </div>
   </div>
+-->
 <% end %>
 
 

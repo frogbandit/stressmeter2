@@ -7,9 +7,21 @@
 
 <p>
   <b>Stress level:</b>
-  <%= Review.where(name: @review.name).average(:stress_level).round(2) %>
+  <%= stressLevel = Review.where({name: @review.name, stress_level: 1..5}).average(:stress_level).round %>
+  <p id="stressLevelDescription" data-stress=<%= "#{stressLevel}" %> ></p>
+  <ul class="no-margin">
+      <% (1..stressLevel).each do |i| %>
+        <li class="rating_star_fixed on">
+        </li>
+        <% end %>
+        <% (stressLevel+1..5).each do |i| %>
+        	<li class="rating_star_fixed">
+        </li>
+      <% end %><p id="stressLevelDescription" data-stress=<%= "#{stressLevel}" %> ></p>
+   </ul>
 </p>
-
+</br>
+</br>
 <p>
   <b>Hours spent:</b>
   <%= Review.where(name: @review.name).average(:hours_spent).round(2) %>
@@ -17,8 +29,22 @@
 
 <p>
   <b>Value:</b>
-  <%= Review.where(name: @review.name).average(:value).round(2) %>
+  <%= valueLevel = Review.where({name: @review.name, value: 1..5}).average(:value).round %>
+  <p id="valueLevelDescription" data-value=<%= "#{valueLevel}" %> ></p>
+  <ul class="no-margin">
+      <% (1..valueLevel).each do |i| %>
+        <li class="rating_star_fixed on">
+        </li>
+        <% end %>
+        <% (valueLevel+1..5).each do |i| %>
+        	<li class="rating_star_fixed">
+        </li>
+      <% end %>
+   </ul>
 </p>
+</br>
+</br>
+
 
 
 <%= link_to 'Edit', edit_review_path(@review) %> |

@@ -1,27 +1,4 @@
 <center><h1>Search a class</h1></center>
-<!--
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Stress level</th>
-    <th>Hours spent</th>
-    <th>Value</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr> -->
-<!--
-<% @reviewnames.each do |review| %>
-  <tr>
-    <td><%= review %></td>
-    <td><%= Review.where(name: review).average(:stress_level).round(2) %></td>
-    <td><%= Review.where(name: review).average(:hours_spent).round(2) %></td>
-    <td><%= Review.where(name: review).average(:value).round(2) %></td>
-    <td><%= link_to 'Add Review', "/reviews/new" %></td>
-  </tr>
-<% end %>
-</table>
--->
 <div class="row">
 
   <%= label_tag :name, nil, class: "display-none" %>
@@ -39,22 +16,12 @@
 
       
     </script>
-    <%= submit_tag "Find class", class: "btn btn-success" %>
+    <%= submit_tag "Find class", class: "btn btn-default" %>
     <% end %>
-    <%= link_to 'New Review', new_review_path, class: "btn btn-primary new-review" %>
+    <%= link_to 'New Review', new_review_path, class: "btn btn-default new-review" %>
 
 </div>
-<div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary">
-    <input type="radio" name="options" id="option1"> Option 1
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio" name="options" id="option2"> Option 2
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio" name="options" id="option3"> Option 3
-  </label>
-</div>
+
 <div class="space">
 </div>
 

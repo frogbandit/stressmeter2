@@ -24,6 +24,8 @@ gem 'jquery-rails'
 
 gem 'bootstrap-sass'
 
+gem "nokogiri"
+
 group :production do
   gem 'pg'
 end
